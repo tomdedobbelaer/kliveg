@@ -1,4 +1,4 @@
-DYL1 <- read.csv("G:/Mijn Drive/INBODATA/PROJECTEN/PRJ_Milieudrukken/2017_INBOPRJ-11474 KLIVEG/130. Raw data/Labo_test_Calibratie_FDR_sensoren/LOGGER S6104/CR200 Series_DYL_test_p1_1_2018-02-07T11-05.dat", header=FALSE)
+DYL1 <- read.csv("C:/git/kliveg/raw data/LOGGER S6107/laboproef nphkp3_s6107_GMT/CR200 Series_NPHK_test_p3_1_2018-03-21T13-27.dat", header=FALSE)
 View(DYL1)
 aDYL1 <- DYL1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(aDYL1) <- as.character(unlist(aDYL1[1,])) #oude benaming kolommen losmaken
