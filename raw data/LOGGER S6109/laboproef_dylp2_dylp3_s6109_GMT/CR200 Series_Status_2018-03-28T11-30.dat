@@ -1,0 +1,5 @@
+"TOA5","CR200 Series","CR200X","27364","CR200X.Std.04","Sxxxx V1_09 test DB_3&2.CR2","6471","Status"
+"TIMESTAMP","RECORD","OSversion","OSDate","OSSignature","ProgName","ProgSig","CalOffset","PakBusAddress","RfInstalled","RfNetAddr","RfAddress","RfHopSeq","RfPwrMode","Rf_ForceOn","Rf_Protocol","MaxTXPacket","RfSignalLevel","RfRxPakBusCnt","VarOutOfBounds","SkipScan","TrapCode","WatchDogCnt","ResetTables","BattVoltage","SerialNum"
+"TS","RN","","","","","","","","","","","","","","","","","","","","","","","",""
+"","","","","","","","","","","","","","","","","","","","","","","","","",""
+"2018-03-28 08:23:13",3,"CR200X.Std.04","150820",53066,"Sxxxx V1_09 test DB_3&2.CR2",6471,5.125,1,0,0,0,0,"NO_RF",0,2,1000,0,0,0,0,0,0,0,12.63272,27364
