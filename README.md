@@ -12,7 +12,8 @@ git push -u "naam repository/branch"
 Logger S6105: soil sample measurements (lab G'bergen) for sites NPHK1 (ecotron monolites at NPHK)
 Logger S6107: soil sample measurements (lab G(bergen) for sites NPHK3 (icos site)
 Logger S6104: soil sample measurements (lab G'bergen) for sites DYLP1
-
+Logger S6109: soil sample measurements (lab G'bergen) for sites DYL2 and DYL3
+Logger S6104: soil sample measurements (lab G'bergen) for sites DYL2 and NPHK2
 #folder content:
 folder GMT+2: old raw data (< 2018-02-07)
 folder GMT: new data (>2018-02-07)
