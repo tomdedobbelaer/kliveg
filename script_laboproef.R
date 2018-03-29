@@ -1,8 +1,13 @@
 library(plyr)
+library(ggplot2)
+library(reshape2)
 ###instellingen grafieken####
 letleg<-1.5 #lettertype legende
 br<-800 #breedte grafiek 
 le<-800 #lengte grafiek
+#datumbereik
+startdate<-"2017-12-01 00:00:00 GMT"
+stopdate<- "2018-03-28 00:00:00 GMT"
 locatie<-file.path ("C:", "git", "kliveg", "plot_output")
 #range Permitivity
 startperm<-0
@@ -18,32 +23,57 @@ startVWC<-0
 stopVWC<-0.8
 #range VWC
 startEC<-0
-stopEC<-1
-
+stopEC<-0.25
+interval<-"month"
 #grafieken voor VWC/Temp/EC####
 ###NPHKp1####
 NPHKp1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6105/laboproef_NPHKp1_s6105_GMT/CR200 Series_NPHK_test_p1_1_2018-03-21T13-49.dat", header=FALSE)
 aNPHKp1 <- NPHKp1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(aNPHKp1) <- as.character(unlist(aNPHKp1[1,])) #oude benaming kolommen losmaken
 aNPHKp1 <- aNPHKp1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
-
+aNPHKp1$EC_1_Avg[aNPHKp1$VWC_1_Avg=="NAN"]<-NA 
+aNPHKp1$Temp_1_Avg[aNPHKp1$VWC_1_Avg=="NAN"]<-NA 
+aNPHKp1$VWC_1_Avg[aNPHKp1$VWC_1_Avg=="NAN"]<-NA
 write.csv(aNPHKp1, file = "NPHKp1.csv")
 NPHKp1a<-read.csv("C:/git/kliveg/NPHKp1.csv", sep = ",", header = T)
 
 
 attach(NPHKp1a)
+NPHKp1a$TIMESTAMP <- as.POSIXct(NPHKp1a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
 naam<-"NPHKp1_EC.bmp"
-bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,EC_1_Avg,ylab='EC',xlab='date',ylim=range(startEC,stopEC))
-lines(TIMESTAMP,EC_2_Avg,col="green")
+#bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
+
+ggplot(NPHKp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = EC_1_Avg, colour = "NPHK_P1_H1")) + 
+  geom_line(aes(y = EC_2_Avg, colour = "NPHK_P1_H2")) +
+  geom_line(aes(y = EC_3_Avg, colour = "NPHK_P1_H3")) +
+  geom_line(aes(y = EC_4_Avg, colour = "NPHK_P1_H4")) +
+  coord_cartesian(ylim = c(startEC, stopEC))+
+  xlab("date") + ylab("EC") +
+  guides(color=guide_legend(title="sensor")) 
+
+
+
+
+plot(TIMESTAMP,EC_1_Avg,ylab='EC',xlab='date',
+ylim=range(startEC,stopEC))
+
+lines(TIMESTAMP,NPHK_P1_H1="green")
 lines(TIMESTAMP,EC_3_Avg,col="blue")
 lines(TIMESTAMP,EC_4_Avg,col="red")
-legend("topright",c("NPHK_P1_H1", "NPHK_P1_H2", "NPHK_P1_H3","NPHK_P1_H4"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
+legend("topright",c("NPHK_P1_H1", "NPHK_P1_H1", "NPHK_P1_H3","NPHK_P1_H4"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
 dev.off()
 
 naam<-"NPHKp1_VWC.bmp"
+NPHKp1a$TIMESTAMP <- as.POSIXlt(NPHKp1a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+ggplot(NPHKp1a, aes(x = TIMESTAMP, y = VWC_1_Avg)) + 
+  geom_line() + 
+  xlab("date") + ylab("VWC") + 
+  scale_x_datetime(date_labels = "%Y-%m%d %H:%M:%S", date_breaks = interval)
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_1_Avg,ylab='VWC',xlab='date',ylim=range(startVWC,stopVWC))
+plot(TIMESTAMP,VWC_1_Avg,ylab='VWC',xlab='date',
+ylim=range(startVWC,stopVWC))
+axis.Date(1, at=seq(min(startdate), max(stopdate), by="30 mon"), format="%s%m-%Y")
 lines(TIMESTAMP,VWC_2_Avg,col="green")
 lines(TIMESTAMP,VWC_3_Avg,col="blue")
 lines(TIMESTAMP,VWC_4_Avg,col="red")
