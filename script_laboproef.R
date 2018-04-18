@@ -40,8 +40,10 @@ NPHKp1a<-read.csv("C:/git/kliveg/NPHKp1.csv", sep = ",", header = T)
 
 attach(NPHKp1a)
 NPHKp1a$TIMESTAMP <- as.POSIXct(NPHKp1a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+
+
 naam<-"NPHKp1_EC.bmp"
-#bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
+bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
 
 ggplot(NPHKp1a, aes(TIMESTAMP)) + 
   geom_line(aes(y = EC_1_Avg, colour = "NPHK_P1_H1")) + 
@@ -51,42 +53,32 @@ ggplot(NPHKp1a, aes(TIMESTAMP)) +
   coord_cartesian(ylim = c(startEC, stopEC))+
   xlab("date") + ylab("EC") +
   guides(color=guide_legend(title="sensor")) 
-
-
-
-
-plot(TIMESTAMP,EC_1_Avg,ylab='EC',xlab='date',
-ylim=range(startEC,stopEC))
-
-lines(TIMESTAMP,NPHK_P1_H1="green")
-lines(TIMESTAMP,EC_3_Avg,col="blue")
-lines(TIMESTAMP,EC_4_Avg,col="red")
-legend("topright",c("NPHK_P1_H1", "NPHK_P1_H1", "NPHK_P1_H3","NPHK_P1_H4"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
 dev.off()
 
 naam<-"NPHKp1_VWC.bmp"
-NPHKp1a$TIMESTAMP <- as.POSIXlt(NPHKp1a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
-ggplot(NPHKp1a, aes(x = TIMESTAMP, y = VWC_1_Avg)) + 
-  geom_line() + 
-  xlab("date") + ylab("VWC") + 
-  scale_x_datetime(date_labels = "%Y-%m%d %H:%M:%S", date_breaks = interval)
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_1_Avg,ylab='VWC',xlab='date',
-ylim=range(startVWC,stopVWC))
-axis.Date(1, at=seq(min(startdate), max(stopdate), by="30 mon"), format="%s%m-%Y")
-lines(TIMESTAMP,VWC_2_Avg,col="green")
-lines(TIMESTAMP,VWC_3_Avg,col="blue")
-lines(TIMESTAMP,VWC_4_Avg,col="red")
-legend("topright",c("NPHK_P1_H1", "NPHK_P1_H2", "NPHK_P1_H3","NPHK_P1_H4"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
-dev.off()
+
+ggplot(NPHKp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = VWC_1_Avg, colour = "NPHK_P1_H1")) + 
+  geom_line(aes(y = VWC_2_Avg, colour = "NPHK_P1_H2")) +
+  geom_line(aes(y = VWC_3_Avg, colour = "NPHK_P1_H3")) +
+  geom_line(aes(y = VWC_4_Avg, colour = "NPHK_P1_H4")) +
+  coord_cartesian(ylim = c(startVWC, stopVWC))+
+  xlab("date") + ylab("VWC") +
+  guides(color=guide_legend(title="sensor")) 
+ dev.off()
 
 naam<-"NPHKp1_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,Temp_1_Avg,ylab='Temp °C',xlab='date',ylim=range(10,25))
-lines(TIMESTAMP,Temp_2_Avg,col="green")
-lines(TIMESTAMP,Temp_3_Avg,col="blue")
-lines(TIMESTAMP,Temp_4_Avg,col="red")
-legend("topright",c("NPHK_P1_H1", "NPHK_P1_H2", "NPHK_P1_H3","NPHK_P1_H4"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
+
+ggplot(NPHKp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = Temp_1_Avg, colour = "NPHK_P1_H1")) + 
+  geom_line(aes(y = Temp_2_Avg, colour = "NPHK_P1_H2")) +
+  geom_line(aes(y = Temp_3_Avg, colour = "NPHK_P1_H3")) +
+  geom_line(aes(y = Temp_4_Avg, colour = "NPHK_P1_H4")) +
+  coord_cartesian(ylim = c(5, 25))+
+  xlab("date") + ylab("Temp") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 detach(NPHKp1a)
@@ -100,28 +92,42 @@ write.csv(aNPHKp2, file = "NPHKp2.csv")
 NPHKp2a<-read.csv("C:/git/kliveg/NPHKp2.csv", sep = ",", header = T)
 
 attach(NPHKp2a)
+NPHKp2a$TIMESTAMP <- as.POSIXct(NPHKp2a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+                                
 naam<-"NPHKp2_EC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,EC_1_Avg,ylab='EC',xlab='date',ylim=range(startEC,stopEC))
-lines(TIMESTAMP,EC_2_Avg,col="green")
-lines(TIMESTAMP,EC_4_Avg,col="blue")
-legend("topright",c("NPHK_p2_H1", "NPHK_p2_H2", "NPHK_p2_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(NPHKp2a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = EC_1_Avg, colour = "NPHK_P2_H1")) + 
+  geom_line(aes(y = EC_2_Avg, colour = "NPHK_P2_H2")) +
+  geom_line(aes(y = EC_4_Avg, colour = "NPHK_P2_H3")) +
+  coord_cartesian(ylim = c(startEC, stopEC))+
+  xlab("date") + ylab("EC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"NPHKp2_VWC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_1_Avg,ylab='VWC',xlab='date',ylim=range(startVWC,stopVWC))
-lines(TIMESTAMP,VWC_2_Avg,col="green")
-lines(TIMESTAMP,VWC_4_Avg,col="blue")
-legend("topright",c("NPHK_P2_H1", "NPHK_P2_H2", "NPHK_P2_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(NPHKp2a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = VWC_1_Avg, colour = "NPHK_P2_H1")) + 
+  geom_line(aes(y = VWC_2_Avg, colour = "NPHK_P2_H2")) +
+  geom_line(aes(y = VWC_4_Avg, colour = "NPHK_P2_H3")) +
+  coord_cartesian(ylim = c(startVWC, stopVWC))+
+  xlab("date") + ylab("VWC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"NPHKp2_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,Temp_1_Avg,ylab='Temp °C',xlab='date',ylim=range(10,25))
-lines(TIMESTAMP,Temp_2_Avg,col="green")
-lines(TIMESTAMP,Temp_4_Avg,col="blue")
-legend("topright",c("NPHK_P2_H1", "NPHK_P2_H2", "NPHK_P2_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(NPHKp2a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = Temp_1_Avg, colour = "NPHK_P2_H1")) + 
+  geom_line(aes(y = Temp_2_Avg, colour = "NPHK_P2_H2")) +
+  geom_line(aes(y = Temp_4_Avg, colour = "NPHK_P2_H3")) +
+  coord_cartesian(ylim = c(0, 40))+
+  xlab("date") + ylab("Temp") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 detach(NPHKp2a)
@@ -142,31 +148,42 @@ write.csv(aNPHKp3, file = "NPHKp3.csv") #dataset gebruikt door plot
 NPHKp3a<-read.csv("C:/git/kliveg/NPHKp3.csv", sep = ",", header = T)
 
 attach(NPHKp3a)
+NPHKp3a$TIMESTAMP <- as.POSIXct(NPHKp3a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+
 naam<-"NPHKp3_EC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,EC_1_Avg,ylab='EC',xlab='date',ylim=range(startEC,stopEC))
-lines(TIMESTAMP,EC_2_Avg,col="green")
-lines(TIMESTAMP,EC_3_Avg,col="blue")
-lines(TIMESTAMP,EC_4_Avg,col="red")
-legend("topright",c("NPHK_P3_H1", "NPHK_P3_H1bis", "NPHK_P3_H2","NPHK_P3_H3"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
+ggplot(NPHKp3a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = EC_1_Avg, colour = "NPHK_P3_H1")) + 
+  geom_line(aes(y = EC_2_Avg, colour = "NPHK_P3_H2")) +
+  geom_line(aes(y = EC_3_Avg, colour = "NPHK_P3_H3")) +
+  geom_line(aes(y = EC_4_Avg, colour = "NPHK_P3_H4")) +
+  coord_cartesian(ylim = c(startEC, stopEC))+
+  xlab("date") + ylab("EC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"NPHKp3_VWC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_1_Avg,ylab='VWC',xlab='date',ylim=range(startVWC,stopVWC))
-lines(TIMESTAMP,VWC_2_Avg,col="green")
-lines(TIMESTAMP,VWC_3_Avg,col="blue")
-lines(TIMESTAMP,VWC_4_Avg,col="red")
-legend("topright",c("NPHK_P3_H1", "NPHK_P3_H1bis", "NPHK_P3_H2","NPHK_P3_H3"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
+ggplot(NPHKp3a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = VWC_1_Avg, colour = "NPHK_P3_H1")) + 
+  geom_line(aes(y = VWC_2_Avg, colour = "NPHK_P3_H2")) +
+  geom_line(aes(y = VWC_3_Avg, colour = "NPHK_P3_H3")) +
+  geom_line(aes(y = VWC_4_Avg, colour = "NPHK_P3_H4")) +
+  coord_cartesian(ylim = c(startVWC, stopVWC))+
+  xlab("date") + ylab("VWC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"NPHKp3_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,Temp_1_Avg,ylab='Temp °C',xlab='date',ylim=range(10,25))
-lines(TIMESTAMP,Temp_2_Avg,col="green")
-lines(TIMESTAMP,Temp_3_Avg,col="blue")
-lines(TIMESTAMP,Temp_4_Avg,col="red")
-legend("topright",c("NPHK_P3_H1", "NPHK_P3_H1bis", "NPHK_P3_H2","NPHK_P3_H3"), pch=15,text.col=c("black", "green", "blue","red"),col=c("black", "green", "blue","red"), cex=letleg)
+ggplot(NPHKp3a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = Temp_1_Avg, colour = "NPHK_P3_H1")) + 
+  geom_line(aes(y = Temp_2_Avg, colour = "NPHK_P3_H2")) +
+  geom_line(aes(y = Temp_3_Avg, colour = "NPHK_P3_H3")) +
+  geom_line(aes(y = Temp_4_Avg, colour = "NPHK_P3_H4")) +
+  coord_cartesian(ylim = c(0, 40))+
+  xlab("date") + ylab("Temp") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 detach(NPHKp3a)
@@ -180,29 +197,44 @@ write.csv(aDYLp1, file = "dylp1.csv")
 DYLp1a<-read.table("C:/git/kliveg/dylp1.csv",sep = ",", header = T)
 
 attach(DYLp1a)
+DYLp1a$TIMESTAMP <- as.POSIXct(DYLp1a$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+
 naam<-"DYLp1_EC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,EC_1_Avg, ylim=range(startEC,stopEC),ylab='EC',xlab='date')
-lines(TIMESTAMP,EC_2_Avg,col="green")
-lines(TIMESTAMP,EC_3_Avg,col="blue")
-legend("topright",c("DYL_P1_H1", "DYL_P1_H2", "DYL_P1_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(DYLp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = EC_1_Avg, colour = "DYL_P1_H1")) + 
+  geom_line(aes(y = EC_2_Avg, colour = "DYL_P1_H2")) +
+  geom_line(aes(y = EC_3_Avg, colour = "DYL_P1_H3")) +
+   coord_cartesian(ylim = c(startEC, stopEC))+
+  xlab("date") + ylab("EC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 attach(DYLp1a)
 naam<-"DYLp1_VWC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_1_Avg, ylim=range(startVWC,stopVWC),ylab='VWC',xlab='date')
-lines(TIMESTAMP,VWC_2_Avg,col="green")
-lines(TIMESTAMP,VWC_3_Avg,col="blue")
-legend("topright",c("DYL_P1_H1", "DYL_P1_H2", "DYL_P1_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(DYLp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = VWC_1_Avg, colour = "DYL_P1_H1")) + 
+  geom_line(aes(y = VWC_2_Avg, colour = "DYL_P1_H2")) +
+  geom_line(aes(y = VWC_3_Avg, colour = "DYL_P1_H3")) +
+  coord_cartesian(ylim = c(startVWC, stopVWC))+
+  xlab("date") + ylab("VWC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
+
 
 naam<-"DYLp1_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,Temp_1_Avg,ylab='Temp (°C)',xlab='date', ylim=range(10, 25))
-lines(TIMESTAMP,Temp_2_Avg,col="green")
-lines(TIMESTAMP,Temp_3_Avg,col="blue")
-legend("topright",c("DYL_P1_H1", "DYL_P1_H2", "DYL_P1_H3"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+
+ggplot(DYLp1a, aes(TIMESTAMP)) + 
+  geom_line(aes(y = Temp_1_Avg, colour = "DYL_P1_H1")) + 
+  geom_line(aes(y = Temp_2_Avg, colour = "DYL_P1_H2")) +
+  geom_line(aes(y = Temp_3_Avg, colour = "DYL_P1_H3")) +
+  coord_cartesian(ylim = c(0, 40))+
+  xlab("date") + ylab("Temp") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 detach(DYLp1a)
@@ -223,29 +255,41 @@ a_dylp2b<-read.table("C:/git/kliveg/dylp2b.csv",sep = ",", header = T)
 
 attach(a_dylp2)
 attach(a_dylp2b)
+a_dylp2$TIMESTAMP <- as.POSIXct(a_dylp2$TIMESTAMP,"%Y-%m-%d %H:%M:%S",tz="GMT")
+
 naam<-"DYLp2_EC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,EC_4_Avg, ylim=range(startEC,stopEC),ylab='EC',xlab='date')
-lines(TIMESTAMP,EC_5_Avg,col="green")
-lines(TIMESTAMPbis,EC_3_Avg,col="blue")
-legend("topright",c("DYL_P2_H1", "DYL_P2_H1bis", "DYL_P2_H2"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+ggplot(a_dylp2, aes(TIMESTAMP)) + 
+  geom_line(aes(y = EC_1_Avg, colour = "DYL_P2_H1")) + 
+  geom_line(aes(y = EC_2_Avg, colour = "DYL_P2_H2")) +
+  geom_line(aes(y = EC_3_Avg, colour = "DYL_P2_H3")) +
+  coord_cartesian(ylim = c(startEC,stopEC))+
+  xlab("date") + ylab("EC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"DYLp2_VWC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,VWC_4_Avg, ylim=range(startVWC,stopVWC),ylab='VWC',xlab='date')
-lines(TIMESTAMP,VWC_5_Avg,col="green")
-lines(TIMESTAMPbis,VWC_3_Avg,col="blue")
-legend("topright",c("DYL_P2_H1", "DYL_P2_H1bis", "DYL_P2_H2"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+ggplot(a_dylp2, aes(TIMESTAMP)) + 
+  geom_line(aes(y = VWC_1_Avg, colour = "DYL_P2_H1")) + 
+  geom_line(aes(y = VWC_2_Avg, colour = "DYL_P2_H2")) +
+  geom_line(aes(y = VWC_3_Avg, colour = "DYL_P2_H3")) +
+  coord_cartesian(ylim = c(0, 40))+
+  xlab("date") + ylab("VWC") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
 
 naam<-"DYLp2_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-plot(TIMESTAMP,Temp_4_Avg,ylab='Temp (°C)',xlab='date', ylim=range(10, 25))
-lines(TIMESTAMP,Temp_5_Avg,col="green")
-lines(TIMESTAMPbis,Temp_3_Avg,col="blue")
-legend("topright",c("DYL_P2_H1", "DYL_P2_H1bis", "DYL_P2_H2"), pch=15,text.col=c("black", "green", "blue"),col=c("black", "green", "blue"), cex=letleg)
+ggplot(a_dylp2, aes(TIMESTAMP)) + 
+  geom_line(aes(y = Temp_1_Avg, colour = "DYL_P2_H1")) + 
+  geom_line(aes(y = Temp_2_Avg, colour = "DYL_P2_H2")) +
+  geom_line(aes(y = Temp_3_Avg, colour = "DYL_P2_H3")) +
+  coord_cartesian(ylim = c(0, 40))+
+  xlab("date") + ylab("Temp") +
+  guides(color=guide_legend(title="sensor")) 
 dev.off()
+
 detach(a_dylp2)
 detach(a_dylp2b)
 
