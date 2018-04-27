@@ -6,8 +6,8 @@ letleg<-1.5 #lettertype legende
 br<-800 #breedte grafiek 
 le<-800 #lengte grafiek
 #datumbereik
-startdate<-"2017-12-01 00:00:00 GMT"
-stopdate<- "2018-03-28 00:00:00 GMT"
+startdate<-"2018-03-27 00:00:00 GMT"
+stopdate<- "2018-04-23 00:00:00 GMT"
 locatie<-file.path ("C:", "git", "kliveg", "plot_output")
 #range Permitivity
 startperm<-0
@@ -27,7 +27,7 @@ stopEC<-1
 interval<-"month"
 
 ###NPHKp1####
-labo_NPHKp1_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6105/laboproef_NPHKp1_s6105_GMT/CR200 Series_NPHK_test_p1_1_2018-03-21T13-49.dat", header=FALSE)
+labo_NPHKp1_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6105/laboproef_NPHKp1_s6105_GMT/CR200 Series_NPHK_test_p1_1.dat", header=FALSE)
 labo_NPHKp1_T1 <- labo_NPHKp1_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp1_T1) <- as.character(unlist(labo_NPHKp1_T1[1,])) #oude benaming kolommen losmaken
 labo_NPHKp1_T1 <- labo_NPHKp1_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -82,7 +82,7 @@ dev.off()
 
 detach(labo_NPHKp1_T1)
 #### ####
-labo_NPHKp1_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6105/laboproef_NPHKp1_s6105_GMT/CR200 Series_NPHK_test_p1_2_2018-03-21T13-49.dat", header=FALSE)
+labo_NPHKp1_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6105/laboproef_NPHKp1_s6105_GMT/CR200 Series_NPHK_test_p1_2.dat", header=FALSE)
 labo_NPHKp1_T2 <- labo_NPHKp1_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp1_T2) <- as.character(unlist(labo_NPHKp1_T2[1,])) #oude benaming kolommen losmaken
 labo_NPHKp1_T2 <- labo_NPHKp1_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -137,7 +137,7 @@ detach(labo_NPHKp1_T2)
 
  
 ###NPHKp2#####
-labo_NPHKp2_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/NPHK_test_p2_1_2018-03-21T13-40.dat", header=FALSE)
+labo_NPHKp2_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/NPHK_test_p2_1.dat", header=FALSE)
 labo_NPHKp2_T1 <- labo_NPHKp2_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp2_T1) <- as.character(unlist(labo_NPHKp2_T1[1,])) #oude benaming kolommen losmaken
 labo_NPHKp2_T1 <- labo_NPHKp2_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -185,7 +185,7 @@ dev.off()
 
 detach(labo_NPHKp2_T1)
 #### ####
-labo_NPHKp2_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/NPHK_test_p2_2_2018-03-21T13-40.dat", header=FALSE)
+labo_NPHKp2_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/NPHK_test_p2_2.dat", header=FALSE)
 labo_NPHKp2_T2 <- labo_NPHKp2_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp2_T2) <- as.character(unlist(labo_NPHKp2_T2[1,])) #oude benaming kolommen losmaken
 labo_NPHKp2_T2 <- labo_NPHKp2_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -234,7 +234,7 @@ dev.off()
 detach(labo_NPHKp2_T2)
 
 ###NPHKp3####
- labo_NPHKp3_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6107/laboproef nphkp3_s6107_GMT/CR200 Series_NPHK_test_p3_1_2018-03-21T13-27.dat", header=FALSE)
+ labo_NPHKp3_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6107/laboproef nphkp3_s6107_GMT/CR200 Series_NPHK_test_p3_1.dat", header=FALSE)
 labo_NPHKp3_T1 <- labo_NPHKp3_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp3_T1) <- as.character(unlist(labo_NPHKp3_T1[1,])) #oude benaming kolommen losmaken
 labo_NPHKp3_T1 <- labo_NPHKp3_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -289,7 +289,7 @@ dev.off()
 
 detach(labo_NPHKp3_T1)
 #### ####
-labo_NPHKp3_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6107/laboproef nphkp3_s6107_GMT/CR200 Series_NPHK_test_p3_2_2018-03-21T13-27.dat", header=FALSE)
+labo_NPHKp3_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6107/laboproef nphkp3_s6107_GMT/CR200 Series_NPHK_test_p3_2.dat", header=FALSE)
 labo_NPHKp3_T2 <- labo_NPHKp3_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_NPHKp3_T2) <- as.character(unlist(labo_NPHKp3_T2[1,])) #oude benaming kolommen losmaken
 labo_NPHKp3_T2 <- labo_NPHKp3_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -345,7 +345,7 @@ dev.off()
 detach(labo_NPHKp3_T2)
 
 ###DYLp1#####
-labo_DYLp1_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6104/laboproef_dylp1_s6104_GMT/CR200 Series_DYL_test_p1_1_2018-03-21T13-09.dat", header=FALSE)
+labo_DYLp1_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6104/laboproef_dylp1_s6104_GMT/CR200 Series_DYL_test_p1_1.dat", header=FALSE)
 labo_DYLp1_T1 <- labo_DYLp1_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_DYLp1_T1) <- as.character(unlist(labo_DYLp1_T1[1,])) #oude benaming kolommen losmaken
 labo_DYLp1_T1 <- labo_DYLp1_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -395,7 +395,7 @@ dev.off()
 
 detach(labo_DYLp1_T1)
 #### ####
-labo_DYLp1_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6104/laboproef_dylp1_s6104_GMT/CR200 Series_DYL_test_p1_2_2018-03-21T13-09.dat", header=FALSE)
+labo_DYLp1_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6104/laboproef_dylp1_s6104_GMT/CR200 Series_DYL_test_p1_2.dat", header=FALSE)
 labo_DYLp1_T2 <- labo_DYLp1_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_DYLp1_T2) <- as.character(unlist(labo_DYLp1_T2[1,])) #oude benaming kolommen losmaken
 labo_DYLp1_T2 <- labo_DYLp1_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -446,8 +446,8 @@ dev.off()
 detach(labo_DYLp1_T2)
 
 ###DYLp2####
-labo_DYLp2_T1<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p2_1_2018-03-21T14-10.dat", header=FALSE)
-labo_DYLp2_T1b<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/CR200 Series_DYL_test_p2b_1_2018-03-21T13-40.dat", header=FALSE)
+labo_DYLp2_T1<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p2_1.dat", header=FALSE)
+labo_DYLp2_T1b<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/CR200 Series_DYL_test_p2b_1.dat", header=FALSE)
 labo_DYLp2_T1 <-labo_DYLp2_T1 [-c(1,2,3,4),] #verwijderen van rij 1, 3 en 4
 labo_DYLp2_T1b <-labo_DYLp2_T1b[-c(1,2,3,4),] #verwijderen van rij 1, 3 en 4
 
@@ -501,8 +501,8 @@ detach(labo_DYLp2_T1)
 detach(labo_DYLp2_T1b)
 #### ####
 
-labo_DYLp2_T2<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p2_2_2018-03-21T14-10.dat", header=FALSE)
-labo_DYLp2_T2bis<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/CR200 Series_DYL_test_p2b_2_2018-03-21T13-40.dat", header=FALSE)
+labo_DYLp2_T2<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p2_2.dat", header=FALSE)
+labo_DYLp2_T2bis<- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6111/laboproef_dylp2-nphk2_s6111_GMT/CR200 Series_DYL_test_p2b_2.dat", header=FALSE)
 labo_DYLp2_T2 <- labo_DYLp2_T2[-c(1,2,3,4),] #verwijderen van rij 1, 3 en 4
 labo_DYLp2_T2bis <- labo_DYLp2_T2bis[-c(1,2,3,4),] #verwijderen van rij 1, 3 en 4
 
@@ -556,7 +556,7 @@ detach(labo_DYLp2_T2)
 detach(labo_DYLp2_T2bis)
 
 ###DYLp3####
-labo_DYLp3_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p3_1_2018-03-21T14-10.dat", header=FALSE)
+labo_DYLp3_T1 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p3_1.dat", header=FALSE)
 labo_DYLp3_T1 <- labo_DYLp3_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_DYLp3_T1) <- as.character(unlist(labo_DYLp3_T1[1,])) #oude benaming kolommen losmaken
 labo_DYLp3_T1 <- labo_DYLp3_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -605,7 +605,7 @@ detach(labo_DYLp3_T1)
 
 
 #### ####
-labo_DYLp3_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p3_2_2018-03-21T14-10.dat", header=FALSE)
+labo_DYLp3_T2 <- read.csv("C:/git/kliveg/GMT gecorrigeerde bestanden/LOGGER S6109/laboproef_dylp2_dylp3_s6109_GMT/CR200 Series_DYL_test_p3_2.dat", header=FALSE)
 labo_DYLp3_T2 <- labo_DYLp3_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(labo_DYLp3_T2) <- as.character(unlist(labo_DYLp3_T2[1,])) #oude benaming kolommen losmaken
 labo_DYLp3_T2 <- labo_DYLp3_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
