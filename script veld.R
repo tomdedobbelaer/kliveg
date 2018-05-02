@@ -27,7 +27,7 @@ stopEC<-0.25
 interval<-"month"
 
 ###veld_NPHKp1_T1####
-veld_NPHKp1_T1 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P1_s6XXX_GMT/CR200 Series_NPHK_PUNT1_T1_1_2018-04-17T13-09.dat",header=F)
+veld_NPHKp1_T1 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P1_s6XXX_GMT/CR200 Series_NPHK_PUNT1_T1_1_2018-04-17T13-09.dat",header=F)
 veld_NPHKp1_T1 <- veld_NPHKp1_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp1_T1) <- as.character(unlist(veld_NPHKp1_T1[1,])) #oude benaming kolommen losmaken
 veld_NPHKp1_T1 <- veld_NPHKp1_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -94,7 +94,7 @@ detach(veld_NPHKp1_T1)
 
 
 ###veld_NPHKp1_T2####
-veld_NPHKp1_T2 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P1_s6XXX_GMT/CR200 Series_NPHK_PUNT1_T2_2_2018-04-17T13-19.dat",header=F)
+veld_NPHKp1_T2 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P1_s6XXX_GMT/CR200 Series_NPHK_PUNT1_T2_2_2018-04-17T13-19.dat",header=F)
 veld_NPHKp1_T2 <- veld_NPHKp1_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp1_T2) <- as.character(unlist(veld_NPHKp1_T2[1,])) #oude benaming kolommen losmaken
 veld_NPHKp1_T2 <- veld_NPHKp1_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -151,7 +151,7 @@ detach(veld_NPHKp1_T2)
 
 
 ###veld_NPHKp2_T1####
-veld_NPHKp2_T1 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P2_s6XXX_GMT/CR200 Series_NPHK_PUNT2_T1_1_2018-04-17T12-44.dat",header=F)
+veld_NPHKp2_T1 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P2_s6XXX_GMT/CR200 Series_NPHK_PUNT2_T1_1_2018-04-17T12-44.dat",header=F)
 veld_NPHKp2_T1 <- veld_NPHKp2_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp2_T1) <- as.character(unlist(veld_NPHKp2_T1[1,])) #oude benaming kolommen losmaken
 veld_NPHKp2_T1 <- veld_NPHKp2_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -218,7 +218,7 @@ detach(veld_NPHKp2_T1)
 
 
 ###veld_NPHKp2_T2####
-veld_NPHKp2_T2 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P2_s6XXX_GMT/CR200 Series_NPHK_PUNT2_T2_2_2018-04-17T12-44.dat",header=F)
+veld_NPHKp2_T2 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P2_s6XXX_GMT/CR200 Series_NPHK_PUNT2_T2_2_2018-04-17T12-44.dat",header=F)
 veld_NPHKp2_T2 <- veld_NPHKp2_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp2_T2) <- as.character(unlist(veld_NPHKp2_T2[1,])) #oude benaming kolommen losmaken
 veld_NPHKp2_T2 <- veld_NPHKp2_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -275,7 +275,7 @@ detach(veld_NPHKp2_T2)
 
 
 ###veld_NPHKp3_T1####
-veld_NPHKp3_T1 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P3_s6110_GMT/CR200 Series_NPHK_PUNT3_T1_1_2018-04-17T11-06.dat",header=F)
+veld_NPHKp3_T1 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P3_s6110_GMT/CR200 Series_NPHK_PUNT3_T1_1_2018-04-17T11-06.dat",header=F)
 veld_NPHKp3_T1 <- veld_NPHKp3_T1[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp3_T1) <- as.character(unlist(veld_NPHKp3_T1[1,])) #oude benaming kolommen losmaken
 veld_NPHKp3_T1 <- veld_NPHKp3_T1[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
@@ -333,7 +333,7 @@ detach(veld_NPHKp3_T1)
 
 
 ###veld_NPHKp3_T2####
-veld_NPHKp3_T2 <- read.csv("C:/Users/tom_dedobbelaer/Desktop/ruwe data loggers/velddata NPHK_P3_s6110_GMT/CR200 Series_NPHK_PUNT3_T2_2_2018-04-17T11-06.dat",header=F)
+veld_NPHKp3_T2 <- read.csv("C:/git/kliveg/raw data/velddata/velddata NPHK_P3_s6110_GMT/CR200 Series_NPHK_PUNT3_T2_2_2018-04-17T11-06.dat",header=F)
 veld_NPHKp3_T2 <- veld_NPHKp3_T2[-c(1,3,4),] #verwijderen van rij 1, 3 en 4
 colnames(veld_NPHKp3_T2) <- as.character(unlist(veld_NPHKp3_T2[1,])) #oude benaming kolommen losmaken
 veld_NPHKp3_T2 <- veld_NPHKp3_T2[-1, ] # verwijder de eerste rij (header en eerste rij zijn anders hetzelfde)
