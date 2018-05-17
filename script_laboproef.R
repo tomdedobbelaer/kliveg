@@ -1,6 +1,7 @@
 library(plyr)
 library(ggplot2)
 library(reshape2)
+library(plotly)
 ###instellingen grafieken####
 letleg<-1.5 #lettertype legende
 br<-800 #breedte grafiek 
@@ -44,16 +45,19 @@ labo_NPHKp1_T1$TIMESTAMP <- as.POSIXct(labo_NPHKp1_T1$TIMESTAMP,"%Y-%m-%d %H:%M:
 
 naam<-"labo_NPHKp1_EC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
-ggplot(labo_NPHKp1_T1, aes(TIMESTAMP)) + 
+NPHK11<-ggplot(labo_NPHKp1_T1, aes(TIMESTAMP)) + 
   geom_line(aes(y = EC_1_Avg, colour = "NPHK_P1_H1")) + 
   geom_line(aes(y = EC_2_Avg, colour = "NPHK_P1_H2")) +
   geom_line(aes(y = EC_3_Avg, colour = "NPHK_P1_H3")) +
   geom_line(aes(y = EC_4_Avg, colour = "NPHK_P1_H4")) +
   coord_cartesian(ylim = c(startEC, stopEC))+
   xlab("date") + ylab("EC") +
-  guides(color=guide_legend(title="sensor")) 
+  guides(color=guide_legend(title="sensor"))
+NPHK11
 dev.off()
 
+NPHK11=ggplotly(NPHK11)
+NPHK11
 naam<-"labo_NPHKp1_VWC.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
 
@@ -69,6 +73,7 @@ ggplot(labo_NPHKp1_T1, aes(TIMESTAMP)) +
 
 naam<-"labo_NPHKp1_Temp.bmp"
 bmp(file = file.path(locatie,paste(naam)), width = br, height = le)
+
 
 ggplot(labo_NPHKp1_T1, aes(TIMESTAMP)) + 
   geom_line(aes(y = Temp_1_Avg, colour = "NPHK_P1_H1")) + 
