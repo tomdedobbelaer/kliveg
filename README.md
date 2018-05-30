@@ -5,7 +5,7 @@ new repository for the KLIVEG project
 raw data folder added
 
 push commando voor R (bij defecte knop)
-git push -u "naam repository/branch"
+git push origin "naam repository/branch"
 
 #Logger indentification:
 
