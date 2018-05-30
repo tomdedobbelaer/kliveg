@@ -626,3 +626,13 @@ ggplot(labo_DYLp3_T2, aes(TIMESTAMP)) +
 dev.off()
 
 
+<<<<<<< HEAD:scripts/script_laboproef.R
+=======
+detach(labo_DYLp3_T2)
+
+### test
+
+
+
+
+>>>>>>> 1e1bced0e8203ff220efbc97f0ad9108967b9e2f:script_laboproef.R
