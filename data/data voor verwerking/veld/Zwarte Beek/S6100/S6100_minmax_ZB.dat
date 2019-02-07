@@ -1,0 +1,4 @@
+"TOA5","S6100","CR1000","E11654","CR1000.Std.31.02","CPU:S6102_ZB_P1.CR1","16643","minmax_ZB"
+"TIMESTAMP","RECORD","Air_Temperature_Min","Air_Temperature_TMn","Air_Temperature_Max","Air_Temperature_TMx","Wind_speed_act_Max","Wind_speed_act_TMx"
+"TS","RN","","","","","",""
+"","","Min","TMn","Max","TMx","Max","TMx"
